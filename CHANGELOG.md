@@ -12,6 +12,8 @@ and this project adheres to
 #### Changed
 #### Deprecated
 #### Removed
+- Drop support for LLVM 12 and below
+  - [#3325](https://github.com/bpftrace/bpftrace/pull/3325)
 #### Fixed
 #### Security
 #### Docs
