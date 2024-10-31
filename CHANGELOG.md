@@ -16,6 +16,8 @@ and this project adheres to
 #### Security
 #### Docs
 #### Tools
+- Fix bashreadline tool probe for dynamically linked readline
+  - [#3564](https://github.com/bpftrace/bpftrace/pull/3564)
 
 ## [0.21.3] 2024-12-16
 
