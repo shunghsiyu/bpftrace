@@ -21,6 +21,9 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ]
       (system:
         let
+          # The default LLVM version is the latest supported release
+          defaultLlvmVersion = 19;
+
           # Overlay to specify build should use the specific libbpf we want
           libbpfVersion = "1.4.2";
           libbpfOverlay =
@@ -139,6 +142,7 @@
             default = bpftrace-llvm18;
 
             # Support matrix of llvm versions
+            bpftrace-llvm19 = mkBpftrace pkgs.llvmPackages_19;
             bpftrace-llvm18 = mkBpftrace pkgs.llvmPackages_18;
             bpftrace-llvm17 = mkBpftrace pkgs.llvmPackages_17;
             bpftrace-llvm16 = mkBpftrace pkgs.llvmPackages_16;
@@ -185,6 +189,7 @@
           devShells = rec {
             default = bpftrace-llvm18;
 
+            bpftrace-llvm19 = mkBpftraceDevShell self.packages.${system}.bpftrace-llvm19;
             bpftrace-llvm18 = mkBpftraceDevShell self.packages.${system}.bpftrace-llvm18;
             bpftrace-llvm17 = mkBpftraceDevShell self.packages.${system}.bpftrace-llvm17;
             bpftrace-llvm16 = mkBpftraceDevShell self.packages.${system}.bpftrace-llvm16;

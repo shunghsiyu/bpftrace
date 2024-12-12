@@ -9,6 +9,8 @@ and this project adheres to
 ## Unreleased
 
 #### Added
+= Bump max supported LLVM version to 19
+  - [#3433](https://github.com/bpftrace/bpftrace/pull/3433)
 #### Changed
 #### Deprecated
 #### Removed

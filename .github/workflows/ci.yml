@@ -53,31 +53,34 @@ jobs:
           NIX_TARGET: .#bpftrace-llvm17
           TOOLS_TEST_OLDVERSION: tcpdrop.bt
           TOOLS_TEST_DISABLE: biosnoop.bt
-        - NAME: LLVM 18 Release
+        - NAME: LLVM 18
+          CMAKE_BUILD_TYPE: Debug
+          NIX_TARGET: .#bpftrace-llvm18
+          TOOLS_TEST_OLDVERSION: tcpdrop.bt
+          TOOLS_TEST_DISABLE: biosnoop.bt
+        - NAME: LLVM 19 Release
           CMAKE_BUILD_TYPE: Release
-          NIX_TARGET: .#bpftrace-llvm18
-          TOOLS_TEST_OLDVERSION: tcpdrop.bt
+          NIX_TARGET: .#bpftrace-llvm19
           TOOLS_TEST_DISABLE: biosnoop.bt
-        - NAME: LLVM 18 Debug
+        - NAME: LLVM 19 Debug
           CMAKE_BUILD_TYPE: Debug
-          NIX_TARGET: .#bpftrace-llvm18
-          TOOLS_TEST_OLDVERSION: tcpdrop.bt
+          NIX_TARGET: .#bpftrace-llvm19
           TOOLS_TEST_DISABLE: biosnoop.bt
-        - NAME: LLVM 18 Clang Debug
+        - NAME: LLVM 19 Clang Debug
           CMAKE_BUILD_TYPE: Debug
-          NIX_TARGET: .#bpftrace-llvm18
+          NIX_TARGET: .#bpftrace-llvm19
           CC: clang
           CXX: clang++
           TOOLS_TEST_OLDVERSION: tcpdrop.bt
           TOOLS_TEST_DISABLE: biosnoop.bt
-        - NAME: Memleak test (LLVM 18 Debug)
+        - NAME: Memleak test (LLVM 19 Debug)
           CMAKE_BUILD_TYPE: Debug
-          NIX_TARGET: .#bpftrace-llvm18
+          NIX_TARGET: .#bpftrace-llvm19
           RUN_MEMLEAK_TEST: 1
           RUN_TESTS: 0
-        - NAME: Memleak test (LLVM 18 Release)
+        - NAME: Memleak test (LLVM 19 Release)
           CMAKE_BUILD_TYPE: Release
-          NIX_TARGET: .#bpftrace-llvm18
+          NIX_TARGET: .#bpftrace-llvm19
           RUN_MEMLEAK_TEST: 1
           RUN_TESTS: 0
     steps:
